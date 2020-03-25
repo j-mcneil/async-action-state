@@ -1,4 +1,4 @@
-import { MemoizedSelector, Selector } from '@ngrx/store';
+import { createSelector } from '@ngrx/store';
 
 export interface AsyncActionState {
   inProgress: boolean;
@@ -10,22 +10,11 @@ export const getInProgress = (state: AsyncActionState) => state.inProgress;
 export const getError = (state: AsyncActionState) => state.error;
 export const getSuccess = (state: AsyncActionState) => state.success;
 
-type CS1<S, T, R> = (s1: Selector<S, T>, projector: (s1: T) => R) => MemoizedSelector<S, R>;
-type CS3<S, T, R> = (
-  s1: Selector<S, T>,
-  s2: Selector<S, T>,
-  s3: Selector<S, T>,
-  projector: (s1: T, s2: T, s3: T) => R
-) => MemoizedSelector<S, R>;
-
 export function getSelectors<
   State extends {},
   FeatureState extends Record<Prop, AsyncActionState>,
-  Prop extends string,
-  Creator extends CS1<State, FeatureState, AsyncActionState> &
-    CS1<State, AsyncActionState, boolean> &
-    CS3<State, boolean, boolean>
->(createSelector: Creator, stateSelector: (state: State) => FeatureState, propName: Prop) {
+  Prop extends string
+>(stateSelector: (state: State) => FeatureState, propName: Prop) {
   const getAsyncActionState = createSelector(stateSelector, state => state[propName]);
 
   const getInProgressSelector = createSelector(getAsyncActionState, getInProgress);

@@ -1,6 +1,6 @@
 # AsyncActionState
 
-Async Action State is a lightweight set of helpers to make handling state around the status of asynchronous actions easier.
+Async Action State is a lightweight set of helpers to make handling state around the status of asynchronous actions easier. Currently it only supports NgRx.
 
 - Predefined states for initial, inProgress, success states
 - Function to generate error state

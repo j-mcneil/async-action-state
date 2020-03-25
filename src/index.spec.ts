@@ -1,6 +1,6 @@
 import { it, describe, beforeEach } from 'mocha';
 import { expect } from 'chai';
-import { createSelector, MemoizedSelector, Selector } from '@ngrx/store';
+import { MemoizedSelector } from '@ngrx/store';
 
 import * as asyncActionState from '.';
 
@@ -11,6 +11,9 @@ interface ItemsState {
 interface AppState {
   items: ItemsState;
 }
+const getItemsState = (appState: AppState) => {
+  return appState.items;
+};
 
 describe('AsyncActionState', () => {
   describe('getSelectors', () => {
@@ -19,7 +22,6 @@ describe('AsyncActionState', () => {
     let getItemsLoadError: MemoizedSelector<AppState, boolean>;
     let getItemsLoadSuccess: MemoizedSelector<AppState, boolean>;
     let getItemsLoadTriggered: MemoizedSelector<AppState, boolean>;
-    let getItemsState: Selector<AppState, ItemsState>;
     let errorState: asyncActionState.AsyncActionState;
 
     describe('ngrx', () => {
@@ -31,16 +33,12 @@ describe('AsyncActionState', () => {
             },
           };
 
-          getItemsState = (state: AppState) => {
-            return state.items;
-          };
-
           ({
             getInProgress: getItemsLoading,
             getSuccess: getItemsLoadSuccess,
             getError: getItemsLoadError,
             getTriggered: getItemsLoadTriggered,
-          } = asyncActionState.getSelectors(createSelector, getItemsState, 'loadItems'));
+          } = asyncActionState.getSelectors(getItemsState, 'loadItems'));
         });
 
         describe('getInProgress', () => {
@@ -108,16 +106,12 @@ describe('AsyncActionState', () => {
             },
           };
 
-          getItemsState = (state: AppState) => {
-            return state.items;
-          };
-
           ({
             getInProgress: getItemsLoading,
             getSuccess: getItemsLoadSuccess,
             getError: getItemsLoadError,
             getTriggered: getItemsLoadTriggered,
-          } = asyncActionState.getSelectors(createSelector, getItemsState, 'loadItems'));
+          } = asyncActionState.getSelectors(getItemsState, 'loadItems'));
         });
 
         describe('getInProgress', () => {
@@ -185,16 +179,12 @@ describe('AsyncActionState', () => {
             },
           };
 
-          getItemsState = (state: AppState) => {
-            return state.items;
-          };
-
           ({
             getInProgress: getItemsLoading,
             getSuccess: getItemsLoadSuccess,
             getError: getItemsLoadError,
             getTriggered: getItemsLoadTriggered,
-          } = asyncActionState.getSelectors(createSelector, getItemsState, 'loadItems'));
+          } = asyncActionState.getSelectors(getItemsState, 'loadItems'));
         });
 
         describe('getInProgress', () => {
@@ -264,16 +254,12 @@ describe('AsyncActionState', () => {
             },
           };
 
-          getItemsState = (state: AppState) => {
-            return state.items;
-          };
-
           ({
             getInProgress: getItemsLoading,
             getSuccess: getItemsLoadSuccess,
             getError: getItemsLoadError,
             getTriggered: getItemsLoadTriggered,
-          } = asyncActionState.getSelectors(createSelector, getItemsState, 'loadItems'));
+          } = asyncActionState.getSelectors(getItemsState, 'loadItems'));
         });
 
         describe('getInProgress', () => {

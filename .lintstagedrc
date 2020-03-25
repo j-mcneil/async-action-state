@@ -1,6 +1,5 @@
 {
   "*.ts": [
     "tslint -c tslint.json --fix",
-    "git add"
   ]
 }

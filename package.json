@@ -4,6 +4,9 @@
   "description": "Helper for keep track of asynchronous actions in ngrx",
   "main": "dist/index.ts",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "test": "mocha -r ts-node/register ./**/*.spec.ts",
     "build": "rimraf ./dist && tsc",

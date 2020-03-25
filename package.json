@@ -7,7 +7,7 @@
   "scripts": {
     "test": "mocha -r ts-node/register ./**/*.spec.ts",
     "build": "rimraf ./dist && tsc",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "author": "James McNeil",
   "license": "ISC",

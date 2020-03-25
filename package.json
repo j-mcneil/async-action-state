@@ -1,0 +1,37 @@
+{
+  "name": "async-action-state",
+  "version": "1.0.0",
+  "description": "Helper for keep track of asynchronous actions in ngrx",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "mocha -r ts-node/register ./**/*.spec.ts",
+    "build": "rimraf ./dist && tsc",
+    "prepublish": "npm run build"
+  },
+  "author": "James McNeil",
+  "license": "ISC",
+  "devDependencies": {
+    "@angular/core": "~9.0.3",
+    "@ngrx/store": "^8.6.0",
+    "@types/chai": "^4.2.10",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.9.0",
+    "@types/ramda": "^0.26.43",
+    "chai": "^4.2.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "mocha": "^7.1.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.6.2",
+    "ts-toolbelt": "^6.3.5",
+    "tslint": "^6.0.0",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "@ngrx/store": "^8.6.0"
+  },
+  "dependencies": {}
+}

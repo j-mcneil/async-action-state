@@ -1,7 +1,11 @@
 {
   "name": "async-action-state",
-  "version": "1.0.0",
-  "description": "Helper for keep track of asynchronous actions in ngrx",
+  "version": "1.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-mcneil/async-action-state"
+  },
+  "description": "Helper for keeping track of asynchronous actions in ngrx",
   "main": "dist/index.ts",
   "types": "dist/index.d.ts",
   "files": [

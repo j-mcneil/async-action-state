@@ -19,7 +19,7 @@
   "author": "James McNeil",
   "license": "ISC",
   "devDependencies": {
-    "@angular/core": "~9.0.3",
+    "@angular/core": "~11.0.5",
     "@ngrx/store": "^8.6.0",
     "@types/chai": "^4.2.10",
     "@types/mocha": "^7.0.2",
